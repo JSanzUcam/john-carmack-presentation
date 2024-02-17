@@ -219,11 +219,11 @@ function deleteDoom() {
     ci.exit();
     ci = null;
 
-    var stuff1 =document.getElementsByClassName("notyf")[0];
+    var stuff1 =document.getElementsByClassName("notyf");
     for (let i = 0; i < stuff1.length; i++) {
         stuff1[i].remove();
     }
-    var stuff2 = document.getElementsByClassName("notyf-announcer")[0];
+    var stuff2 = document.getElementsByClassName("notyf-announcer");
     for (let i = 0; i < stuff2.length; i++) {
         stuff2[i].remove();
     }
