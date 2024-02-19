@@ -18,14 +18,29 @@
 
   <link rel="stylesheet" href="styles/style.css">
 
-  <!-- Script -->
+  <!-- Lib -->
   <script src="js-dos/js-dos.js"></script>
+  <script src="jszip/FileSaver.min.js"></script>
+  <script src="jszip/jszip.min.js"></script>
 
-  <script src="loadData.js"></script>
+  <!-- VARIABLES -->
+  <script src="javascript/jsp_vars.js"></script>
+  <script src="javascript/update_html.js"></script>
+  <script src="javascript/loadData.js"></script>
+  <!-- Ctrl + R = Title text  | Ctrl + F = Body text  -->
+  <!-- Ctrl + Space = Advanced Options -->
+  <script src="javascript/editor.js"></script>
 </head>
 <body onload="loadTitle()">
 
   <h1 class="slidetitle" id="title">ERROR!</h1>
+  <div id="editorDiv" class="editorDiv"> <!-- EDITOR -->
+    <form name="pickfile" class="inline"> <!--  -->
+      <input name="file" type="file" />
+      <input id="colort" type="color" value="#ffffff" />
+      <input id="colorb" type="color" value="#ffffff" />
+    </form>
+  </div> <!-- /EDITOR -->
   <div class="transbox" id="slidediv">
     <p class="slidedata">No data for this slide! Whoops!</p>
     <p class="slidedata">Error code: 4M06U5 - Slide is f*cked up!</p>

@@ -48,6 +48,17 @@ body {
 	height: 100%;
 }
 
+.editorDiv {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+.inline {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
 /* Text and other stuff */
 .slidetitle {
 	font-family: "SixtyFour", sans-serif;
