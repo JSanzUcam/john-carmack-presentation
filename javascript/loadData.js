@@ -3,11 +3,11 @@ var ci = null;
 window.addEventListener('keydown', event => {
     if (event.key == "ArrowLeft") {
         if (jsp_slideNum > 0) {
-            loadSlide(jsp_slideNum-1);
+            loadSlideZIPByID(jsp_slideNum-1);
         }
     } else if (event.key == "ArrowRight") {
         if (jsp_slideNum < jsp_maxSlide) {
-            loadSlide(jsp_slideNum+1);
+            loadSlideZIPByID(jsp_slideNum+1);
         }
     }
 })
@@ -15,7 +15,7 @@ window.addEventListener('keydown', event => {
 // Load Cover of presentation, just loads the first slide
 // The first slide is slide 0
 function loadTitle() {
-    loadSlide(jsp_slideNum);
+    loadSlideZIPByID(jsp_slideNum);
 }
 
 // Tries to get files from the folder named 'id'
@@ -25,7 +25,7 @@ function loadTitle() {
 //
 // It will also try to load the 'prstyle' file
 // if it exists
-function loadSlide(id) {
+function loadSlideByID(id) {
     // Update current slide number
     jsp_slideNum = id;
 
@@ -66,6 +66,63 @@ function loadSlide(id) {
         loadSlideStyle(text);
     })
     .catch((e) => console.log("prstyle not found"));
+}
+
+function loadSlideZIPByID(id) {
+    // Update current slide number
+    jsp_slideNum = id;
+
+    fetch("presentation/"+id+".jsp")
+    .then(res => res.blob())
+    .then(blob => {
+        loadSlideZIP(blob, id);
+    });
+}
+
+function loadSlideZIP(data, id) {
+    // READ ZIP
+    JSZip.loadAsync(data)
+    .then(function(zip) {
+        zip.forEach(function (relativePath, zipEntry) {
+            zip.files[relativePath].async("string").then(function (fileData) {
+                // READ TEXT FILES
+                if (zipEntry.name == "data.txt") {
+                    interpretDataFile(fileData);
+                }
+                else if (zipEntry.name == "prstyle") {
+                    loadSlideStyle(fileData);
+                }
+            })
+            zip.files[relativePath].async("blob").then(function (fileData) {
+                // READ BACKGROUND
+                if (zipEntry.name == "bg.png") {
+                    editBG(URL.createObjectURL(fileData));
+                }
+            })
+        });
+    })
+    .catch(e => {
+        if (id === undefined) {
+            fetch("assets/error.jsp")
+            .then(res => res.blob())
+            .then(blob => {
+                loadSlideZIP(blob, -1);
+            });
+        } else {
+            editBG("peepeepoopoo");
+            
+            if (id >= 0) {
+                interpretDataFile("TITLE:  ");
+                // If this slide gives error, it's the end of the presentation
+                jsp_maxSlide = id;
+                // Make BG black in that case
+                editBGColor("black");
+            }
+            else {
+                interpretDataFile("TITLE:  Error!\n\nSomething got EXTREMELY fucked up");
+            }
+        }
+    });
 }
 
 // Write to the HTML Elements

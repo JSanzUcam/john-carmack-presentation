@@ -14,6 +14,10 @@ window.addEventListener("load", () => {
     document.forms.pickfile.file.addEventListener('change', e => {
         bgreader.readAsDataURL(e.target.files[0]);
     });
+    // Form Callback for ZIP FILE LOADING
+    document.forms.pickfile.ziploading.addEventListener('change', e => {
+        loadSlideZIP(document.forms.pickfile.ziploading.files[0]);
+    });
     // Callback for Color 1
     var colort = document.getElementById("colort");
     colort.addEventListener("input", e => {
@@ -65,7 +69,7 @@ window.addEventListener('keydown', async event => {
 
         var editorDiv = document.getElementById("editorDiv");
         if (editorDiv.style.display === "none") {
-            editorDiv.style.display = "inline";
+            editorDiv.style.display = "block";
         } else {
             editorDiv.style.display = "none";
         }
@@ -101,4 +105,5 @@ window.addEventListener('keydown', async event => {
             saveAs(content, "slide.jsp");
         });
     }
+    // Load Files
 });

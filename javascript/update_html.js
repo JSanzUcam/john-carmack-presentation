@@ -146,3 +146,6 @@ function editBG(url) {
     
     document.body.style.backgroundImage="url('"+ url +"')";
 }
+function editBGColor(value) {
+    document.body.style.backgroundColor = value;
+}

@@ -3,7 +3,7 @@
 <head>
   <style>
   body {
-    background-color: black;
+    background-color: rgb(82, 82, 82);
     background-image: url('assets/test/missing_textures.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;  
@@ -36,8 +36,13 @@
   <h1 class="slidetitle" id="title">ERROR!</h1>
   <div id="editorDiv" class="editorDiv"> <!-- EDITOR -->
     <form name="pickfile" class="inline"> <!--  -->
-      <input name="file" type="file" />
+      <label for="file">Background</label>
+      <input id="file" name="file" type="file" />
+      <label for="ziploading">LOAD JSP FILE</label>
+      <input id="ziploading" name="ziploading" type="file" />
+      <label for="colort">Title Color</label>
       <input id="colort" type="color" value="#ffffff" />
+      <label for="colorb">Text Color</label>
       <input id="colorb" type="color" value="#ffffff" />
     </form>
   </div> <!-- /EDITOR -->

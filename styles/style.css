@@ -16,7 +16,7 @@ body {
 	color: floralwhite;
 	font-size: 2vw;
 
-	white-space: pre-line;
+	white-space: block;
 
 	overflow: hidden;
 }
@@ -29,7 +29,7 @@ body {
 	padding: 5vh 5vw;
 	margin: auto;
 
-	width: 80%;
+	width: 80vw;
 	height: 45vh;
 
 	border-style: solid;
@@ -38,6 +38,8 @@ body {
 	border-color: black;
 
 	box-shadow: 0 0 0.75vw black;
+
+	white-space: pre-line;
 }
 
 .doomdiv {
@@ -50,10 +52,28 @@ body {
 
 .editorDiv {
 	display: none;
-	margin: 0;
-	padding: 0;
+
+	background-color: rgba(255, 255, 255, 0);
+	-webkit-backdrop-filter: blur(1vw);
+	backdrop-filter: blur(1vw);
+	padding: 2vh 5vw;
+	margin: 1vh auto;
+
+	width: 80vw;
+
+	border-style: solid;
+	border-radius: 2vw;
+	border-width: 0.2vw;
+	border-color: black;
+
+	box-shadow: 0 0 0.75vw black;
+
+	text-align: center;
+
+	/* white-space: block; */
 }
 .inline {
+	white-space: block;
 	display: inline;
 	margin: 0;
 	padding: 0;
@@ -73,8 +93,8 @@ body {
 	color: rgb(255, 0, 0);
 	font-size: 5vw;
 
-	margin-top: 7vh;
-	margin-bottom: 4vh;
+	margin-top: 15vh;
+	margin-bottom: 10vh;
 
 	text-align: center;
 	text-shadow: 0 0 1vw black;
