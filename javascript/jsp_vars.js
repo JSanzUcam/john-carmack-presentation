@@ -5,9 +5,9 @@
 // ---------
 
 // Keybinds
-const JSP_CHANGE_TITLE = "r";
-const JSP_CHANGE_BODY  = "t";
-const JSP_SAVE_TO_FILE = "s";
+const JSP_CHANGE_TITLE = "R";
+const JSP_CHANGE_BODY  = "T";
+const JSP_SAVE_TO_FILE = "S";
 
 // -------------------------
 

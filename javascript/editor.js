@@ -34,7 +34,7 @@ window.addEventListener("load", () => {
 // ---------------------
 window.addEventListener('keydown', async event => {
     // Change Title Text
-    if (event.ctrlKey && event.key == JSP_CHANGE_TITLE) {
+    if (event.shiftKey && event.key == JSP_CHANGE_TITLE) {
         event.preventDefault();
 
         let title = document.getElementById("title");
@@ -48,7 +48,7 @@ window.addEventListener('keydown', async event => {
         updateTitle(newText);
     }
     // Change Body Text
-    if (event.ctrlKey && event.key == JSP_CHANGE_BODY) {
+    if (event.shiftKey && event.key == JSP_CHANGE_BODY) {
         event.preventDefault();
         
         var newText = "";
@@ -64,7 +64,7 @@ window.addEventListener('keydown', async event => {
         loadBodyFromText(newText);
     }
     // Show Editor Controls
-    if (event.ctrlKey && event.code == "Space") {
+    if (event.shiftKey && event.code == "Space") {
         event.preventDefault();
 
         var editorDiv = document.getElementById("editorDiv");
@@ -75,7 +75,7 @@ window.addEventListener('keydown', async event => {
         }
     }
     // Save files
-    if (event.ctrlKey && event.key == JSP_SAVE_TO_FILE) {
+    if (event.shiftKey && event.key == JSP_SAVE_TO_FILE) {
         event.preventDefault();
 
         // TEST CRAP
